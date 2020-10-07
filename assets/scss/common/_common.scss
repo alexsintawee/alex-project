@@ -1,0 +1,74 @@
+// Common
+.bx-col-1 { width: 100%; }
+.bx-col-2 { width: 50%; }
+.bx-col-3 { width: 33.33%; }
+.bx-col-4 { width: 25%; }
+.bx-col-10 { width: 10%; }
+.bx-col-20 { width: 20%; }
+.bx-col-30 { width: 30%; }
+.bx-col-40 { width: 40%; }
+.bx-col-60 { width: 60%; }
+.bx-col-70 { width: 70%; }
+.bx-col-80 { width: 80%; }
+.bx-col-90 { width: 90%; }
+
+.bx-flex { display: flex; }
+.bx-flex-row { flex-direction: row; }
+.bx-flex-column { flex-direction: column; }
+.bx-flex.flex-start { justify-content: flex-start; }
+.bx-flex.flex-end { justify-content: flex-end; }
+.bx-flex.center { justify-content: center; }
+.bx-flex.space-between { justify-content: space-between; }
+.bx-flex.space-around { justify-content: space-around; }
+.bx-flex.space-evenly { justify-content: space-evenly; }
+.bx-flex.align-top { align-items: flex-start; }
+.bx-flex.align-center { align-items: center; }
+.bx-flex.align-bottom { align-items: flex-end; }
+.bx-flex.flex-start { align-items: flex-start; }
+.bx-flex.flex-wrap { flex-wrap: wrap; }
+.bx-flex.flex-nowrap { flex-wrap: nowrap; }
+.bx-flex.flex-wrap-reverse { flex-wrap: wrap-reverse; }
+
+.bx-flex-container { display: flex; flex-direction: row; flex-wrap: wrap; }
+.bx-flex-center { display: flex; justify-content: center; align-items: center; }
+
+.box-shadow { box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); }
+.drop-shadow { filter: drop-shadow(2px 2px 1px #333); }
+.text-shadow { text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3); }
+
+.rcorner-3 { border-radius: 3px; }
+.rcorner-5 { border-radius: 5px; }
+.rcorner-6 { border-radius: 6px; }
+.rcorner-10 { border-radius: 10px; }
+.rcorner-20 { border-radius: 20px; }
+.circle { border-radius: 50%; }
+
+.item-absolute { position: absolute; }
+.item-relative { position: relative; }
+.item-fixed { position: fixed; }
+.item-block { display: block; }
+.item-inline-block { display: inline-block; }
+
+.animated {
+    transition: all 0.5s ease-in-out;
+    -webkit-transition: all 0.5s ease-in-out;
+    -moz-transition: all 0.5s ease-in-out;
+    -o-transition: all 0.5s ease-in-out;
+}
+.animated-linear {
+    transition: all 0.1s linear;
+    -webkit-transition: all 0.1s linear;
+    -moz-transition: all 0.1s linear;
+    -o-transition: all 0.1s linear;
+}
+
+/* Scroll Detect */
+.data-scroll-detect { opacity: 0; margin-top: 100px; }
+.data-scroll-detect.scroll-detected-toggle.scroll-detected, .data-scroll-detect.scroll-detected-toggle.scroll-detected-passed { opacity: 1; margin-top: 0px; }
+.section .data-scroll-detect .title-bar { opacity: 0; text-shadow: none; overflow: hidden; width: 0%; padding: 4px; -webkit-clip-path: polygon(0% 0%, 0% 280%, 75% 0%); clip-path: polygon(0% 0%, 0% 280%, 75% 0%); }     
+.section .data-scroll-detect.scroll-detected .title-bar, .section .data-scroll-detect.scroll-detected-passed .title-bar { color: #FFF; width: 300px; opacity: 1; }
+@media only screen and (max-width: 768px) {   
+.section .data-scroll-detect.scroll-detected .title-bar, .section .data-scroll-detect.scroll-detected-passed .title-bar { width: 60%; }
+}
+/* End Scroll Detect */
+// Common

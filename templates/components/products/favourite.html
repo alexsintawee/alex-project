@@ -1,0 +1,7 @@
+<ul class="productList">
+    {{#each products}}
+    <li class="product">
+		{{>components/products/list-item settings=../settings position=(add @index 1)}}
+    </li>
+    {{/each}}
+</ul>

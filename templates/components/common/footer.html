@@ -1,111 +1,133 @@
-{{#if banners.bottom}}
-    {{#if settings.data_tag_enabled}}
-        <div class="banners" data-banner-location="bottom">
-            {{#each (limit banners.bottom_metadata 1)}}
-                <div class="banner" data-event-type="promotion" data-entity-id="{{this.id}}" data-name="{{this.banner-name}}" data-position="{{this.location}}" data-name="{{this.banner-name}}">
-                    <div data-event-type="promotion-click">
-                        {{{this.content}}}
-                    </div>
-                </div>
-            {{/each}}
-        </div>
-    {{else}}
-        <div class="banners" data-banner-location="bottom">
-            <div class="banner">
-                {{{limit banners.bottom 1}}}
+<footer class="footer" role="contentinfo">
+    <a href="/" class="site-logo">
+    	<span class="">Gillette Direct</span>
+    </a>
+
+    <div class="container bx-flex bx-flex-row space-between">
+        <section class="footer-social">
+            <article class="footer-social--newsletter" data-section-type="newsletterSubscription">
+                    <h5>Subscribe to our newsletters</h5>
+
+<form class="form" action="/subscribe.php" method="post">
+    <fieldset class="form-fieldset">
+        <input type="hidden" name="action" value="subscribe">
+        <input type="hidden" name="nl_first_name" value="bc">
+        <input type="hidden" name="check" value="1">
+        <div class="form-field">
+            <label class="form-label is-srOnly" for="nl_email">Email Address</label>
+            <div class="form-prefixPostfix wrap">
+                <input class="form-input" id="nl_email" name="nl_email" type="email" value="" placeholder="Enter your email">
+                <button class="send" type="submit">
+                    <span class="txt">Submit</span>
+                    <span class="svg-container">{{> components/common/svg-icons/white-arrow}}</span>              
+                </button>
             </div>
         </div>
-    {{/if}}
-
-{{/if}}
-<footer class="footer" role="contentinfo">
-    <h2 class="footer-title-sr-only">{{lang 'footer.title'}}</h2>
-    <div class="container">
-        {{#if theme_settings.social_icon_placement_bottom '!==' 'bottom_none'}}
-            <article class="footer-info-col
-                footer-info-col--social
-                footer-info-col--{{#if theme_settings.social_icon_placement_bottom '===' 'bottom_left'}}left{{else}}right{{/if}}"
-                data-section-type="footer-webPages">
-                    <h3 class="footer-info-heading">{{lang 'social.connect'}}</h3>
-                    {{> components/common/social-links}}
-            </article>
-        {{/if}}
-        <section class="footer-info">
-            <article class="footer-info-col footer-info-col--small" data-section-type="footer-webPages">
-                <h3 class="footer-info-heading">{{lang 'footer.navigate'}}</h3>
-                <ul class="footer-info-list">
-                    {{#each pages}}
-                        <li>
-                            <a href="{{url}}">{{name}}</a>
-                        </li>
-                    {{/each}}
-                    <li>
-                        <a href="{{urls.sitemap}}">{{lang 'sitemap.page_title'}}</a>
-                    </li>
-                </ul>
+    </fieldset>
+</form>
             </article>
 
-            <article class="footer-info-col footer-info-col--small" data-section-type="footer-categories">
-                <h3 class="footer-info-heading">{{lang 'footer.categories'}}</h3>
-                <ul class="footer-info-list">
-                    {{#each categories}}
-                        <li>
-                            <a href="{{url}}">{{name}}</a>
-                        </li>
-                    {{/each}}
-                </ul>
-            </article>
-
-            {{#and theme_settings.shop_by_brand_show_footer shop_by_brand.length}}
-            <article class="footer-info-col footer-info-col--small" data-section-type="footer-brands">
-                <h3 class="footer-info-heading">{{lang 'footer.brands'}}</h3>
-                <ul class="footer-info-list">
-                    {{#each shop_by_brand}}
-                        <li>
-                            <a href="{{url}}">{{name}}</a>
-                        </li>
-                    {{/each}}
-                    <li><a href="{{urls.brands}}">{{lang 'common.view_all'}}</a></li>
-                </ul>
-            </article>
-            {{/and}}
-
-            {{#if settings.address}}
-            <article class="footer-info-col footer-info-col--small" data-section-type="storeInfo">
-                <h3 class="footer-info-heading">{{lang 'footer.info'}}</h3>
-                <address>{{nl2br settings.address}}</address>
-                {{#if settings.phone_number}}
-                    <strong>{{lang 'footer.call_us' phone_number=settings.phone_number}}</strong>
-                {{/if}}
-            </article>
-            {{/if}}
-
-            <article class="footer-info-col" data-section-type="newsletterSubscription">
-                {{#if settings.show_newsletter_box}}
-                    {{> components/common/subscription-form}}
-                {{/if}}
-                {{> components/common/payment-icons}}
+            <article class="footer-social--social" data-section-type="footer-webPages">
+                    <ul class="socialLinks socialLinks--alt">
+            <li class="socialLinks-item">
+                <a class="icon icon--facebook" href="https://www.facebook.com/GilletteANZ/" target="_blank">
+                    <svg><use xlink:href="#icon-facebook"></use></svg>
+                </a>
+            </li>
+            <li class="socialLinks-item">
+                <a class="icon icon--instagram" href="https://www.instagram.com/gilletteaustralia/" target="_blank">
+                    <svg><use xlink:href="#icon-instagram"></use></svg>
+                </a>
+            </li>
+            <li class="socialLinks-item">
+                <a class="icon icon--youtube" href="https://www.youtube.com/user/gilletteaustralia" target="_blank">
+                    <svg><use xlink:href="#icon-youtube"></use></svg>
+                </a>
+            </li>
+    </ul>
             </article>
         </section>
-        {{#if theme_settings.geotrust_ssl_common_name}}
-            <div class="footer-geotrust-ssl-seal">
-                {{> components/common/geotrust-ssl-seal}}
-            </div>
-        {{/if}}
-        {{#if settings.paypal_commerce_credit_message}}
-        <div class="footer-copyright">
-            <p class="paypal-credit">{{nl2br settings.paypal_commerce_credit_message}}</p>
-        </div>
-        {{/if}}
-        {{#if theme_settings.show_powered_by}}
-            <div class="footer-copyright">
-                <p class="powered-by">Powered by <a href="https://www.bigcommerce.com?utm_source=merchant&amp;utm_medium=poweredbyBC" rel="nofollow">BigCommerce</a></p>
-            </div>
-        {{/if}}
-        {{#if theme_settings.show_copyright_footer}}
-            <div class="footer-copyright">
-                <p class="powered-by">&copy; {{moment format="YYYY"}} {{settings.store_name}} </p>
-            </div>
-        {{/if}}
+
+        <section class="footer-info">
+                        <article class="footer-info-col" data-section-type="footer-webPages" data-footer-toggle="">
+                            <ul class="footer-info-list">
+                                <li>
+                                    <a href="/get-started/">Get Started </a>
+                                </li>
+                                <li>
+                                    <a href="/students/">Students </a>
+                                </li>
+                                <li>
+                                    <a href="/discover/">Discover </a>
+                                </li>
+                            </ul>
+                        </article>
+                        <article class="footer-info-col" data-section-type="footer-webPages" data-footer-toggle="">
+                            <ul class="footer-info-list">
+                                <li>
+                                    <a href="/razors/">Razors</a>
+                                </li>
+                                <li>
+                                    <a href="/heated-razor/">Heated Razor</a>
+                                </li>
+                                <li>
+                                    <a href="/accessories/">Accessories</a>
+                                </li>
+                                <li>
+                                    <a href="/gifts/">Gifts </a>
+                                </li>
+                            </ul>
+                        </article>
+                        <article class="footer-info-col" data-section-type="footer-webPages" data-footer-toggle="">
+                            <ul class="footer-info-list">
+                                <li>
+                                    <a href="https://direct.gillette.com.au/about/">About</a>
+                                </li>
+                                <li>
+                                    <a href="https://direct.gillette.com.au/faqs/">FAQs</a>
+                                </li>
+                                <li>
+                                    <a href="https://direct.gillette.com.au/shaving-tips/">Shaving tips</a>
+                                </li>
+                                <li>
+                                    <a href="https://direct.gillette.com.au/contact-us/">Contact us</a>
+                                </li>
+                            </ul>
+                        </article>
+                        <article class="footer-info-col" data-section-type="footer-webPages" data-footer-toggle="">
+                            <ul class="footer-info-list">
+                                <li>
+                                    <a href="https://direct.gillette.com.au/terms-conditions/">Terms &amp; Conditions</a>
+                                </li>
+                                <li>
+                                    <a href="https://direct.gillette.com.au/privacy-policy/">Privacy Policy</a>
+                                </li>
+                                <li>
+                                    <a href="https://direct.gillette.com.au/return-refunds/">Return &amp; Refunds</a>
+                                </li>
+                            </ul>
+                        </article>
+        </section>
     </div>
+
+    <div class="footer-container-last bx-flex bx-flex-row space-between">
+        <section class="footer-payments first bx-col-70">
+                <div class="footer-payment-icons">
+        <svg class="footer-payment-icon"><use xlink:href="#icon-logo-american-express"></use></svg>
+        <svg class="footer-payment-icon"><use xlink:href="#icon-logo-visa"></use></svg>
+        <svg class="footer-payment-icon"><use xlink:href="#icon-logo-mastercard"></use></svg>
+        <svg class="footer-payment-icon"><use xlink:href="#icon-logo-paypal"></use></svg>
+        <svg class="footer-payment-icon"><use xlink:href="#icon-logo-afterpay"></use></svg>
+    </div>
+        </section>
+
+        <section class="footer-partners last bx-col-30 bx-flex flex-end">
+            <a href="/terracycle/">
+                <svg class="icon--gd-terracycle-white"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#icon-gd-terracycle-white"></use></svg></a>
+        </section>
+    </div>
+
+        <div class="footer-copyright">
+            <p class="powered-by">© 2020 Procter &amp; Gamble <a href="https://www.gillette.com.au" target="_new">Gillette.com.au</a></p>
+        </div>
 </footer>

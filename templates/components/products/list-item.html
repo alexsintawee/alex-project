@@ -35,8 +35,12 @@
             {{/if}}
         {{/unless}}
     </figure>
-    <div class="listItem-body">
+    <div class="listItem-body item-{{@index}}">
+        <a class="btn-product-link" href="{{url}}" {{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}}>
         <div class="listItem-content">
+            <div class="seller-flag">
+                <span class="seller-text"></span>
+            </div>
             <div class="listItem-details">
                 {{#if show_rating}}
                     <p class="listItem-rating">{{> components/products/ratings rating=rating}}</p>
@@ -44,9 +48,13 @@
                 {{#if brand.name}}
                 <p class="listItem-brand">{{brand.name}}</p>
                 {{/if}}
-                <h4 class="listItem-title">
-                    <a href="{{url}}" {{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}}>{{name}}</a>
-                </h4>
+                
+                    
+                    <span class="listItem-title">
+                    SHOP {{name}}
+                    </span>
+                    
+                
                 {{#if summary}}
                     <p>{{{summary}}}</p>
                 {{/if}}
@@ -63,9 +71,6 @@
                         {{#if pre_order}}
                             <a href="{{pre_order_add_to_cart_url}}" data-event-type="product-click" class="button button--primary">{{lang 'products.pre_order'}}</a>
                         {{/if}}
-                        {{#if add_to_cart_url }}
-                            <a href="{{add_to_cart_url}}" {{#if settings.data_tag_enabled}} data-event-type="product-click" {{/if}} class="button button--primary">{{lang 'products.add_to_cart'}}</a>
-                        {{/if}}
                         {{#if out_of_stock_message }}
                             <a href="{{url}}" data-event-type="product-click" class="button button--small" data-product-id="{{id}}">{{out_of_stock_message}}</a>
                         {{/if}}
@@ -80,5 +85,6 @@
                 {{/if}}
             </div>
         </div>
+        </a>
     </div>
 </article>

@@ -1,7 +1,45 @@
 <div class="heroCarousel-content{{#unless show_background}} heroCarousel-content--empty{{/unless}}">
     <span class="heroCarousel-title">{{{heading}}}</span>
     <p class="heroCarousel-description">{{{text}}}</p>
+    
+    {{#if @index '==' 2}}
+        <div class="sub-text">
+            <span class="icons bx-flex bx-flex space-betweeen">
+              <div class="bx-flex bx-flex-column bx-col-2">
+              <span class="icon-block">
+                <span class="icon-image">
+                  <img src="{{cdn 'icons/2.png'}}" style="width: 49px; height: 31px;">
+                </span>
+                <span>Free <br />Delivery</span>
+              </span>
+              <span class="icon-block">
+                <span class="icon-image">
+                  <img src="{{cdn 'icons/3.png'}}" style="width: 27px; height: 48px;">
+                </span>
+                <span>Free Handle</span>
+              </span>
+              </div>
+              <div class="bx-flex bx-flex-column bx-col-2">
+              <span class="icon-block">
+                <span class="icon-image">
+                  <img src="{{cdn 'icons/1.png'}}" style="width: 53px; height: 37px;">
+                </span>
+                <span>4th Order Free</span>
+              </span>
+              <span class="icon-block">
+                <span class="icon-image">
+                  <img src="{{cdn 'icons/4.png'}}" style="width: 34px; height: 33px;">
+                </span>
+                <span>Cancel Anytime</span>
+              </span>
+              </div>
+            </span> 
+        </div>
+    {{/if}}   
+    
     {{#if button_text}}
+        <a href="{{url}}">
         <span class="heroCarousel-action button button--primary button--large">{{button_text}}</span>
+        </a>
     {{/if}}
 </div>

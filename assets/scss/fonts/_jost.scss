@@ -1,0 +1,8 @@
+@mixin jost {
+	@font-face {
+        font-family: "Jost";
+        font-style: normal;
+        font-weight: 800;
+        src: url("../fonts/Jost-VF.ttf") format("ttf")
+    }
+}

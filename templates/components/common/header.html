@@ -1,4 +1,15 @@
-<a href="#main-content" class="skip-to-main-link">{{lang 'header.skip_to_main'}}</a>
+<div id="header-banner" class="header-banner bx-flex-center">
+<div class="promo-message default bx-flex-center">
+		<span class="txt">Free Delivery</span>
+		<span class="icon-divide"></span>
+		<span class="txt">Every 4th Order Free</span>
+		<span class="icon-divide"></span>
+		<span class="txt">Free Handle</span>
+		<div class="icon-divide"></div>
+		<span class="txt">Free of Commitments</span>
+</div>
+<a href="#main-content" class="skip-link screen-reader-text">{{lang 'header.skip_to_main'}}</a>
+</div>
 {{#if banners.top}}
 <div class="banners" data-banner-location="top">
     {{#each (limit banners.top_metadata 1)}}
@@ -10,23 +21,13 @@
     {{/each}}
 </div>
 {{/if}}
-<header class="header" role="banner">
+
+<header class="header header-section" role="banner">
     <a href="#" class="mobileMenu-toggle" data-mobile-menu-toggle="menu">
         <span class="mobileMenu-toggleIcon">Toggle menu</span>
     </a>
+    <div class="bx-nav-container animated">
     {{> components/common/navigation}}
-
-    {{#if page_type '===' 'default'}}
-        <h1 class="header-logo header-logo--{{theme_settings.logo-position}}">
-            {{> components/common/store-logo}}
-        </h1>
-    {{else}}
-        <div class="header-logo header-logo--{{theme_settings.logo-position}}">
-            {{> components/common/store-logo}}
-        </div>
-    {{/if}}
-    <div class="navPages-container" id="menu" data-menu>
-        {{> components/common/navigation-menu}}
     </div>
 </header>
 {{{region name="header_bottom--global"}}}
