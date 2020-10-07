@@ -1,43 +1,3 @@
-$(document).ready(function() {
-	body_loading();
-	
-	var get_top_promo_header = $(".header-banner").height();
-	$(".header-section").css("top",get_top_promo_header);
-});
-$(window).on("scroll", function() {
-  var get_windows_scroll = $(window).scrollTop();
-
-$(".data-scroll-detect").each(function() {
-	var this_elem = $(this);
-    var elem_padding_detect_start = parseInt(this_elem.offset().top); 
-    if (typeof this_elem.data("padding-start") !== "undefined" && this_elem.data("padding-start") !== "" ) {
-      elem_padding_detect_start = elem_padding_detect_start - parseInt(this_elem.data("padding-start"));
-    }
-	var elem_padding_detect_end = elem_padding_detect_start + parseInt(this_elem.height());
-	if (typeof this_elem.data("padding-end") !== "undefined" && this_elem.data("padding-end") !== "" ) {
-      elem_padding_detect_end = elem_padding_detect_end - parseInt(this_elem.data("padding-end"));
-    }
-    
-	if ((get_windows_scroll>elem_padding_detect_start) && (get_windows_scroll<elem_padding_detect_end)) {
-		this_elem.addClass("scroll-detected");
-	} else {
-		this_elem.removeClass("scroll-detected");
-	}  
-	if (get_windows_scroll>elem_padding_detect_start) {
-		this_elem.addClass("scroll-detected-toggle");
-	}
-	if (get_windows_scroll>elem_padding_detect_end) {
-		this_elem.addClass("scroll-detected-passed");
-	} 
-	if (get_windows_scroll<elem_padding_detect_start) {
-		this_elem.removeClass("scroll-detected");
-		this_elem.removeClass("scroll-detected-passed");
-	} 
-});
-  Header_sticky();
-  local_nav_sticky();
-
-});
 function Header_sticky() { 
   var get_windows_scroll = $(window).scrollTop();
   var get_header_height = $(".header-section").outerHeight();
@@ -99,3 +59,43 @@ function body_loading() {
     $("body").addClass("loaded");
   }, 1000);
 }
+$(document).ready(function() {
+	body_loading();
+	
+	var get_top_promo_header = $(".header-banner").height();
+	$(".header-section").css("top",get_top_promo_header);
+});
+$(window).on("scroll", function() {
+  var get_windows_scroll = $(window).scrollTop();
+
+$(".data-scroll-detect").each(function() {
+	var this_elem = $(this);
+    var elem_padding_detect_start = parseInt(this_elem.offset().top); 
+    if (typeof this_elem.data("padding-start") !== "undefined" && this_elem.data("padding-start") !== "" ) {
+      elem_padding_detect_start = elem_padding_detect_start - parseInt(this_elem.data("padding-start"));
+    }
+	var elem_padding_detect_end = elem_padding_detect_start + parseInt(this_elem.height());
+	if (typeof this_elem.data("padding-end") !== "undefined" && this_elem.data("padding-end") !== "" ) {
+      elem_padding_detect_end = elem_padding_detect_end - parseInt(this_elem.data("padding-end"));
+    }
+    
+	if ((get_windows_scroll>elem_padding_detect_start) && (get_windows_scroll<elem_padding_detect_end)) {
+		this_elem.addClass("scroll-detected");
+	} else {
+		this_elem.removeClass("scroll-detected");
+	}  
+	if (get_windows_scroll>elem_padding_detect_start) {
+		this_elem.addClass("scroll-detected-toggle");
+	}
+	if (get_windows_scroll>elem_padding_detect_end) {
+		this_elem.addClass("scroll-detected-passed");
+	} 
+	if (get_windows_scroll<elem_padding_detect_start) {
+		this_elem.removeClass("scroll-detected");
+		this_elem.removeClass("scroll-detected-passed");
+	} 
+});
+  Header_sticky();
+  local_nav_sticky();
+
+});
